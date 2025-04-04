@@ -1,6 +1,6 @@
 import pygame
 
-from constants import *
+from constants import MAX_FPS, SCREEN_HEIGHT, SCREEN_WIDTH
 from player import Player
 
 
@@ -10,6 +10,10 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     print("Starting Asteroids!")
@@ -21,7 +25,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0, 0, 0))
-        player.update(dt)
+        updatable.update(dt)
         player.draw(screen)
         pygame.display.flip()
         delta = clock.tick(MAX_FPS)
