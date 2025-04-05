@@ -2,10 +2,10 @@ from sys import exit
 
 import pygame
 
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
 from constants import MAX_FPS, SCREEN_HEIGHT, SCREEN_WIDTH
-from player import Player
+from objects.asteroid import Asteroid
+from objects.asteroidfield import AsteroidField
+from objects.player import Player
 
 
 def main():
